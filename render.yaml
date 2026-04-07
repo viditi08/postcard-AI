@@ -1,0 +1,20 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# In the Render dashboard: New → Blueprint → connect this repo (use repo root that contains postcard/).
+services:
+  - type: web
+    name: postcard-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: CORS_ALLOW_ALL
+        value: "true"
+      # Optional: Gmail SMTP (set in dashboard as secrets)
+      # - key: SMTP_HOST
+      # - key: SMTP_PORT
+      # - key: SMTP_USER
+      # - key: SMTP_PASSWORD
+      # - key: SMTP_FROM
+      # Optional: override auto URL (otherwise Render sets RENDER_EXTERNAL_URL)
+      # - key: PUBLIC_API_URL
