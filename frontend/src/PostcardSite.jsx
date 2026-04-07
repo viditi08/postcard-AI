@@ -8,7 +8,6 @@ function hostnameIsLocal(host) {
   return h === "localhost" || h === "127.0.0.1" || h === "[::1]" || h.endsWith(".localhost");
 }
 
-/** Best URL for the recipient (email + copy): server sets postcard_url; never use localhost. */
 function shareUrlForPostcard(pc) {
   const tryUrl = (u) => {
     if (!u) return null;
@@ -36,17 +35,14 @@ function shareUrlForPostcard(pc) {
 }
 
 export default function PostcardSite() {
-  const [view, setView] = useState("landing"); // landing | compose | result | shared | about
+  const [view, setView] = useState("landing");
   const [sharedLoading, setSharedLoading] = useState(false);
   const [sharedError, setSharedError] = useState("");
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [sendStatus, setSendStatus] = useState("");
   const [copied, setCopied] = useState(false);
-
   const [postcard, setPostcard] = useState(null);
-
   const [formData, setFormData] = useState({
     recipientName: "",
     recipientEmail: "",
@@ -55,7 +51,6 @@ export default function PostcardSite() {
     memory: "",
     style: "classic",
   });
-
   const [photo, setPhoto] = useState(null);
   const [preview, setPreview] = useState(null);
 

@@ -500,7 +500,7 @@ def send_postcard(payload: SendPostcardRequest):
                     "Email is not configured. In postcard/backend/.env set either: "
                     "(1) RESEND_API_KEY and EMAIL_FROM, or "
                     "(2) SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, and SMTP_FROM. "
-                    "See postcard/backend/env.example."
+                    "See postcard/backend/.env."
                 ),
             )
         raise HTTPException(status_code=502, detail=detail)
